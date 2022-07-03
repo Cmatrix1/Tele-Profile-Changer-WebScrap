@@ -27,6 +27,13 @@ Run
 python ProfileChanger.py
 ```
 
+You can also choose the category of images and the time to change the profile picture
+```python
+class ProfChanger():
+    categorys = ["lancer", "benz", "bmw", "love", "ford", "programmer","python","cat", "dog", "iran", "car", "mazda"]
+    space_time = 30 # To second
+```
+
 # Future
 ### I need your support to add these features. Please support me by giving stars and sharing this source with your friends.
 - Advanced admin panel
