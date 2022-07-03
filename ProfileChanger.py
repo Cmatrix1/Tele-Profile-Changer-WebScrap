@@ -11,7 +11,7 @@ class ProfChanger():
     space_time = 30 # To second
 
     def __init__(self):
-        self.app = Client("Cmatrix1", 4795698, "b7cbd1541be198d0397bd10133329734")
+        self.app = Client("Cmatrix1", 1111111, "Your accont hash")
 
     def get_source(self, url):
         req = get(url).content
