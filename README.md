@@ -30,7 +30,7 @@ python ProfileChanger.py
 You can also choose the category of images and the time to change the profile picture
 ```python
 class ProfChanger():
-    categorys = ["lancer", "benz", "bmw", "love", "ford", "programmer","python","cat", "dog", "iran", "car", "mazda"]
+    categorys = ["lancer", "benz", "bmw", "programmer", "python", "cat", "dog", "iran"]
     space_time = 30 # To second
 ```
 
