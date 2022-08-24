@@ -1,41 +1,51 @@
-# Tele-Profile-Changer-WebScrap
-This is a script to change the Telegram profile at the specified time. This script extracts the attention of the words you give to the program from the photo site
+Telegram Profile Changer
+=============================
+
+This script is for changing your Telegram profile at a specified time. The script gets some profile photos based on the
+words you provide.
 
 ![Untitled](https://user-images.githubusercontent.com/74909796/177029185-82163201-8ad8-4ec2-9f45-ec1dd5112427.png)
 
+Installation
+------------
 
-# Instalation
-
-Clone the Script
+Clone the repository:
 ```
-git clone https://github.com/Cmatrix1/Tele-Profile-Changer-WebScrap/
+git clone https://github.com/MPCodeWriter21/Telegram-Profile-Changer
 ```
 
-install the requirement librarys
+Install the required libraries:
+
 ```
 pip install -r requirement.txt
 ```
 
-add your api_hash and api_id
-```python
-    def __init__(self):
-        self.app = Client("Cmatrix1", "your accont api id", "Your accont api hash")
+Add your api_hash and api_id into the `.env` file:
+
+```dotenv
+APIID=api-id
+APIHASH=api-hash
 ```
 
-Run
+Usage
+-----
+
 ```
 python ProfileChanger.py
 ```
 
 You can also choose the category of images and the time to change the profile picture
+
 ```python
 class ProfChanger():
     categorys = ["lancer", "benz", "bmw", "programmer", "python", "cat", "dog", "iran"]
-    space_time = 30 # To second
+    space_time = 30  # To second
 ```
 
 # Future
+
 ### I need your support to add these features. Please support me by giving stars and sharing this source with your friends.
+
 - Advanced admin panel
 - The ability to write time on the photo
 - The ability to change the account name at the same time as the photo
