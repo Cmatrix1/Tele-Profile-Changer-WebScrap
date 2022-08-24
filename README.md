@@ -10,14 +10,15 @@ Installation
 ------------
 
 Clone the repository:
+
 ```
 git clone https://github.com/MPCodeWriter21/Telegram-Profile-Changer
 ```
 
 Install the required libraries:
 
-```
-pip install -r requirement.txt
+```shell
+pip install -r requirements.txt
 ```
 
 Add your api_hash and api_id into the `.env` file:

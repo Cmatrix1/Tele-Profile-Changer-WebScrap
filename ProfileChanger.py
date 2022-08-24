@@ -1,14 +1,15 @@
 from bs4 import BeautifulSoup
 from requests import get
 from random import choice
-from os import listdir, remove
-from pyrogram import Client, filters
+from os import listdir
+from pyrogram import Client
 from time import sleep
 
 
-class ProfChanger():
-    categorys = ["lancer", "benz", "bmw", "love", "peaky", "shellby", "ford", "programmer","python", "jdm", "cat", "dog", "iran", "car", "mazda"]
-    space_time = 30 # To second
+class ProfChanger:
+    categorys = ["lancer", "benz", "bmw", "love", "peaky", "shellby", "ford", "programmer", "python", "jdm", "cat",
+                 "dog", "iran", "car", "mazda"]
+    space_time = 30  # To second
 
     def __init__(self):
         self.app = Client("Cmatrix1", 1111111, "Your accont hash")
@@ -19,9 +20,9 @@ class ProfChanger():
         return soup
 
     def extract_urls2(self, word):
-        soup = self.get_source("https://www.peakpx.com/en/search?q="+word)
+        soup = self.get_source("https://www.peakpx.com/en/search?q=" + word)
         find = soup.find_all("figure")
-        finds = list(map(lambda i:i.a["href"], find))
+        finds = list(map(lambda i: i.a["href"], find))
         return finds
 
     def get_image(self, url):
@@ -43,7 +44,7 @@ class ProfChanger():
             # app.delete_profile_photos([p.file_id for p in photos[1:]]) # Delete Profile Photos
             app.set_profile_photo(photo=name)
             # remove(name) # Delete Downloded Photo
-    
+
     def main(self):
         while True:
             sleep(30)
@@ -51,6 +52,7 @@ class ProfChanger():
             url = self.get_image(choice(urls))
             name = self.download_img(url)
             self.change_profile(name)
+
 
 bot = ProfChanger()
 bot.main()
