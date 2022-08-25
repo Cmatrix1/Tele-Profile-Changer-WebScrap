@@ -32,7 +32,7 @@ Usage
 -----
 
 ```
-usage: ProfileChanger.py [-h] [-id API_ID] [-hash API_HASH] [-t TIME_TO_SLEEP] [-v] [-q]
+usage: ProfileChanger.py [-h] [-id API_ID] [-hash API_HASH] [-t TIME_TO_SLEEP] [-c] [-v] [-q]
                          categories [categories ...]
 
 positional arguments:
@@ -47,6 +47,8 @@ options:
                         Your telegram API-HASH
   -t TIME_TO_SLEEP, --time-to-sleep TIME_TO_SLEEP
                         Change the profile every X seconds(Default: 1800)
+  -c, --clean
+                        Remove images from the storage after setting the profile.
   -v, --verbose
   -q, --quiet
 
