@@ -4,3 +4,4 @@ requests>=2.28.1
 Pyrogram>=2.0.41
 python-dotenv>=0.20.0
 TgCrypto>=1.2.3
+log21>=2.3.10
