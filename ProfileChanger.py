@@ -26,7 +26,7 @@ class ProfileChanger:
     time_to_sleep = 60 * 30  # in seconds
 
     def __init__(self, api_id: int, api_hash: str, categories: List[str], time_to_sleep: int = 1800,
-                 level: Union[int, str] = 'INFO'):
+                 clean: bool = False, level: Union[int, str] = 'INFO'):
         self.app = Client("session", api_id, api_hash)
         self.logger = log21.get_logger('ProfileChanger', level=level)
         if not categories:
@@ -39,6 +39,7 @@ class ProfileChanger:
             raise ValueError('time_to_sleep can\'t be less than 1.')
         self.categories = list(set(categories))
         self.time_to_sleep = time_to_sleep
+        self.clean = clean
         self.app.start()
         self.app.stop()
 
@@ -84,7 +85,9 @@ class ProfileChanger:
             # photos = list(app.get_chat_photos("me"))
             # app.delete_profile_photos([p.file_id for p in photos[1:]]) # Delete Profile Photos
             self.app.set_profile_photo(photo=path)
-            # remove(name) # Delete Downloaded Photo
+            if self.clean:
+                os.remove(path)  # Delete Downloaded Photo
+                self.logger.info('Removed downloaded image!')
         self.logger.info('Done!')
 
     def run(self):
@@ -124,6 +127,8 @@ def main():
     parser.add_argument('-hash', '--api-hash', action='store', type=int, help='Your telegram API-HASH')
     parser.add_argument('-t', '--time-to-sleep', action='store', type=int,
                         help='Change the profile every X seconds(Default: 1800)', default=1800)
+    parser.add_argument('-c', '--clean', action='store_true',
+                        help='Remove images from the storage after setting the profile.')
     parser.add_argument('-v', '--verbose', action='store_true')
     parser.add_argument('-q', '--quiet', action='store_true')
     args = parser.parse_args()
@@ -150,7 +155,7 @@ def main():
     if not api_hash:
         log21.error('API-HASH is not specified! Please use `-hash` argument or put your API-HASH in `.env` file.')
 
-    bot = ProfileChanger(api_id, api_hash, args.categories, args.time_to_sleep, level)
+    bot = ProfileChanger(api_id, api_hash, args.categories, args.time_to_sleep, args.clean, level)
     bot.run()
 
 
