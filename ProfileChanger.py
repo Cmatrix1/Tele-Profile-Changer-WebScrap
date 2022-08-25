@@ -124,7 +124,7 @@ def main():
     parser = log21.ColorizingArgumentParser()
     parser.add_argument('categories', action='store', nargs='+', help='Categories for profile photos.')
     parser.add_argument('-id', '--api-id', action='store', type=int, help='Your telegram API-ID')
-    parser.add_argument('-hash', '--api-hash', action='store', type=int, help='Your telegram API-HASH')
+    parser.add_argument('-hash', '--api-hash', action='store', help='Your telegram API-HASH')
     parser.add_argument('-t', '--time-to-sleep', action='store', type=int,
                         help='Change the profile every X seconds(Default: 1800)', default=1800)
     parser.add_argument('-c', '--clean', action='store_true',
