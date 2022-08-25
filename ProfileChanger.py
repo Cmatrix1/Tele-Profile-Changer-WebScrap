@@ -47,7 +47,7 @@ class ProfileChanger:
         # Find images with a random category
         category = random.choice(self.categories)
         self.logger.info(f'Searching for images related to {LCYAN}{category}{RESET}...')
-        url = f"https://www.peakpx.com/en/search?q={category}"
+        url = f"https://www.peakpx.com/en/search?q={category}&device=2"
         response = requests.get(url)
         soup = BeautifulSoup(response.content, 'html.parser')
         figures = soup.find_all("figure")
